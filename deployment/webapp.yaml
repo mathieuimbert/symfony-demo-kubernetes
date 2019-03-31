@@ -33,6 +33,7 @@ apiVersion: v1
 metadata:
   name: symfony-demo
 spec:
+  type: LoadBalancer
   ports:
   -
     name: http
@@ -41,23 +42,4 @@ spec:
     protocol: TCP
   selector:
     app: symfony-demo
----
-kind: Ingress
-apiVersion: extensions/v1beta1
-metadata:
-  name: symfony-demo
-  annotations:
-      certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-spec:
-  tls:
-  - hosts:
-    - symfony-demo-dev.k8s.bastianhofmann.de
-    secretName: symfony-demo-secret
-  rules:
-  - host: symfony-demo-dev.k8s.bastianhofmann.de
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: symfony-demo
-          servicePort: 80
+

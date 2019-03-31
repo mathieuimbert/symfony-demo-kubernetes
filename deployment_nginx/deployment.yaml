@@ -11,7 +11,7 @@ spec:
     spec:
       initContainers:
         - name: symfony-demo-init
-          image: bashofmann/symfony-demo-nginx:1.0.0
+          image: tchoupi/symfony-nginx:v1.0.1
           volumeMounts:
             - mountPath: /volume
               name: symfony-demo-code

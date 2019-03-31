@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: symfony-demo
 spec:
+  type: LoadBalancer
   ports:
   -
     name: http
